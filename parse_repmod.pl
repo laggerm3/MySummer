@@ -19,10 +19,10 @@ while (my $line = <INPUT_REPMOD>) {
 		$sequence_of{$hash_key1} = $hash_value;
 	} 
 }
-# prints out the name and corresponding sequence from repeat modeler
-foreach $hash_key1 (keys %sequence_of) {
-	print "$hash_key1\t$sequence_of{$hash_key1}\n";
-}
+# prints out the name and corresponding sequence from repeat modeler --- can be used to check if it is correct
+#foreach $hash_key1 (keys %sequence_of) {
+#	print "$hash_key1\t$sequence_of{$hash_key1}\n";
+#}
 
 #open the evalues that need to be compared to the repmod_results, based on the evalue
 my %name_of;
@@ -44,7 +44,7 @@ while (my $line2 = <INPUT_EVALUES>) {
 #prints out the corresponding sequences to the evalue met family names
 foreach my $hash_key3 (keys %name_of) {
 	if ($hash_key1 = $hash_key3) {	
-		print "Corresponding sequences: $hash_key3\t$sequence_of{$hash_key1}\n";}
+		print "$hash_key3\t$sequence_of{$hash_key1}\n";}
 }
 
 close INPUT_REPMOD;
