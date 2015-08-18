@@ -9,7 +9,7 @@ while (my $line = <BED_FILE>) {
 	push <BED_FILE>, $_;
 	my @column = split(" ",$line );
 	if ( $column[1] => $column[2] ) {
-        push( @output, "$column[0]\t$column[2]\t$column[1]\t$column[3]\t+" );
+        push( @output, "$column[0]\t$column[2]\t$column[1]\t$column[3]" );
     }
 	else {
 	push @output, "$column[0]\t$column[1]\t$column[2]\t$column[3]";
