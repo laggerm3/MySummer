@@ -14,12 +14,12 @@ for (@input) {
     my @column = split( /\s+/, $_ );
 
     if ( $column[1] <= $column[2] ) {
-        push( @output, "$column[0] $column[1] $column[2] $column[3]" );
+        push( @output, "$column[0]\t$column[1]\t$column[2]\t$column[3]" );
     }
     else {
-        push ( @output, "$column[0] $column[2] $column[1] $column[3]");
+        push ( @output, "$column[0]\t$column[2]\t$column[1]\t$column[3]");
     }
 }
 
-print "$_\n" for @output
-
+print "$_\n" for @output;
+exit;
