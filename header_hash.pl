@@ -7,15 +7,15 @@ my %sequence;
 
 open(TE_NAMES_FILE, $ARGV[0]) or die "Cannot open the file: $!";
 my $hash_key_TE;
-my $hash_value;
+my $hash_value_TE;
 while (my $line = <TE_NAMES_FILE>) {
 	if ($line =~ /^>(\S+)/) {
 		$hash_key_TE = $1;
 	}
 	elsif ($line =~ /\S/) {
 		chomp $line;
-		$hash_value = $line;
-		$sequence{$hash_key_TE} = $hash_value;
+		$hash_value_TE = $line;
+		$sequence{$hash_key_TE} = $hash_value_TE;
 	} 
 }
 
@@ -39,9 +39,14 @@ while (my $line2 = <COORDINATES_FILE>) {
 }
 
 #foreach $hash_key_coord (keys %sequence_2) {
-#	print "$sequence_2{$hash_key_coord}\t$hash_key_coord\n";
+	#print "$sequence_2{$hash_key_coord}\t$hash_key_coord\n";	
+	##print $hash_key_coord, "\n";
 #	}
-foreach my $hash_key_coord (keys %sequence_2) {
-	if ($sequence{$hash_key_TE} = $sequence_2{$hash_key_coord}) 		{
-	print ">$hash_key_TE|$hash_key_coord\n$sequence_2{$hash_key_coord}\n";}
+foreach $hash_key_TE (keys %sequence) {
+#for $hash_key_coord (keys %sequence_2) {
+	if ($sequence_2{$hash_key_coord} = $sequence{$hash_key_TE})
+	{
+	print ">$hash_key_TE|$hash_key_coord\n$sequence{$hash_key_TE}\n"
+	#print $hash_key_coord,"\n";	
+	}
 }
