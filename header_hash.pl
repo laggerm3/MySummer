@@ -42,11 +42,15 @@ while (my $line2 = <COORDINATES_FILE>) {
 	#print "$sequence_2{$hash_key_coord}\t$hash_key_coord\n";	
 	##print $hash_key_coord, "\n";
 #	}
+
+####missing sequences, checked them by hand something is going wrong in the loop
+
+foreach $hash_key_coord (keys %sequence_2) {
 foreach $hash_key_TE (keys %sequence) {
-#for $hash_key_coord (keys %sequence_2) {
-	if ($sequence_2{$hash_key_coord} = $sequence{$hash_key_TE})
-	{
-	print ">$hash_key_TE|$hash_key_coord\n$sequence{$hash_key_TE}\n"
+	if ($sequence{$hash_key_TE} eq $sequence_2{$hash_key_coord})
+		{
+		print ">$hash_key_TE|$hash_key_coord\n$sequence{$hash_key_TE}\n"
 	#print $hash_key_coord,"\n";	
+		}
 	}
 }
